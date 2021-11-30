@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+
+    </style>
+</head>
+<body> 
+    <!-- <div id="clock"></div> -->
+
+    Amount: <input type="text" value="1000">
+    <button>Calculate Tip</button>
+    <div class="tip"></div>
+    <!-- <button>I am second Button</button> -->
+    
+     <script>  
+       let amount = document.querySelector("input")
+       let output = document.querySelector(".tip")
+       let button   = document.querySelector("button")
+
+       let message=(name)=>{
+           output.innerText = `${name} you can give a tip of ${amount.value*2/100} rupees`
+       }
+       button.addEventListener("click",() => message("Abhishek"))
+       
+    
+    
+    
+    </script>
+</body>
+</html>

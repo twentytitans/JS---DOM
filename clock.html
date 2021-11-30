@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+
+    </style>
+</head>
+<body> 
+    <div id="clock"></div>
+
+    
+     <script>
+     function updateTime(t){
+          if(t < 10){
+                return "0" + t;
+          }
+          else{
+                return t;
+          }
+     }
+
+     function amPM(hour){
+         if(hour == 0){
+                return ["12", "AM"];
+         }
+        else if(hour < 12){
+             return [hour, "AM"];
+        }
+        else if(hour == 12){
+            return [hour, "PM"];
+        }
+        else if(hour > 12) {
+            hour = hour - 12;
+            return [hour, "PM"];
+        }
+     }
+     function weekDay(d){
+            switch(d){
+                case 0:
+                    return "Sunday";
+                case 1:
+                    return "Monday";
+                case 2:
+                    return "Tuesday";
+                case 3:
+                    return "Wednesday";
+                case 4:
+                    return "Thursday";
+                case 5:
+                    return "Friday";
+                case 6:
+                    return "Saturday";
+            }
+     }
+
+
+
+     function currentTime(){  
+        let date = new Date()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+        let seconds = date.getSeconds()
+        let day = date.getDay()
+        
+        hrt = amPM(hours)
+        hours = hrt[0]
+        ampm = hrt[1]
+        hours = updateTime(hours)
+        minutes = updateTime(minutes)
+        seconds = updateTime(seconds)
+        let time = `${hours}:${minutes}:${seconds} ${ampm} ${weekDay(day)}`
+        document.querySelector("#clock").innerText = time
+     }
+    //  currentTime()
+    setInterval(currentTime,1000)
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+
+    </style>
+</head>
+<body> 
+
+
+    Enter your Name: <input type="text" value="Abhishek">
+    <button> Welcome</button>
+    <div class="message"></div>
+     
+
+    
+    
+     <script>  
+       // 5 - 12 =>GM, <17 => Good After, <20 => Good Evening, <12 am - <5 => Good Night, 
+       let name=document.querySelector("input")
+       let button=document.querySelector("button")
+       let output=document.querySelector(".message")
+        
+        function message(hour, s){
+          if(hour-12){
+            return "GoodMorning";
+          }
+          else if(hour<17){
+            return "GoodAfternnoon";
+          }
+          else if(hour<20){
+            return "GoodEvening";
+          }
+          else if(hour<12){
+            return "GoodNight"
+          }
+         
+        }
+        let date = new Date()
+        let hours = date.getHours()
+        displayMessage = ()=>{
+            output.innerText = `Hey ${name.value} ${message(hours)}`
+        }
+        button.addEventListener("click",displayMessage)
+      
+    
+    </script>
+</body>
+</html>
